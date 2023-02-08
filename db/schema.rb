@@ -10,9 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_08_175942) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_08_202414) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "characters", force: :cascade do |t|
+    t.string "name"
+    t.string "house"
+    t.string "bloodStatus"
+    t.string "species"
+    t.date "dateOfBirth"
+    t.string "ancestry"
+    t.string "patrons"
+    t.string "actor"
+    t.boolean "alive"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image"
+  end
 
   create_table "houses", force: :cascade do |t|
     t.string "name"
@@ -28,4 +43,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_175942) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "wands", force: :cascade do |t|
+    t.string "wood"
+    t.string "core"
+    t.integer "length"
+    t.bigint "character_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_wands_on_character_id"
+  end
+
+  add_foreign_key "wands", "characters"
 end

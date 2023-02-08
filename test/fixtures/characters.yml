@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  house: MyString
+  bloodStatus: MyString
+  species: MyString
+  dateOfBirth: 2023-02-08
+  ancestry: MyString
+  patrons: MyString
+  actor: MyString
+  alive: false
+
+two:
+  name: MyString
+  house: MyString
+  bloodStatus: MyString
+  species: MyString
+  dateOfBirth: 2023-02-08
+  ancestry: MyString
+  patrons: MyString
+  actor: MyString
+  alive: false
