@@ -58,10 +58,9 @@ class UsersController < ApplicationController
 
   # Check if user is logged in before accessing certain actions
 
-
   def require_login
-    unless session[:user_id]
+    return if session[:user_id]
+
     render json: { error: 'You must be logged in to access this section' }, status: :unauthorized
-    end
   end
 end
