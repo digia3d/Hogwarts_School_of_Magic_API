@@ -1,66 +1,35 @@
 class UsersController < ApplicationController
-  before_action :require_login
-
-  # GET /users
-
   def index
     @users = User.all
     render json: @users
   end
 
-  # GET /users/1
-
   def show
+    @user = User.find(params[:id])
     render json: @user
   end
 
-  # POST /users
-
   def create
-    @user = User.new(user_params)
-
-    if @user.save
-      render json: @user, status: :created, location: @user
+    if User.find_by_name(user_params[:name])
+      render json: { error: 'Username already exists, please login or use another username to sign up' },
+             status: :unauthorized
     else
-      render json: @user.errors, status: :unprocessable_entity
+      @user = User.create(user_params)
+      render json: @user, status: :ok
     end
   end
 
-  # PATCH/PUT /users/1
-
-  def update
-    if @user.update(user_params)
-      render json: @user
+  def login
+    if User.find_by_name(user_params[:name])
+      @user = User.find_by_name(user_params[:name])
+      render json: @user, status: :accepted
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: { error: 'Username does not exists, please sign up' }, status: :not_found
     end
   end
-
-  # DELETE /users/1
-
-  def destroy
-    @user.destroy
-  end
-
-  private
-
-  # Use callbacks to share common setup or constraints between actions.
-
-  def set_user
-    @user = User.find(params[:id])
-  end
-
-  # Only allow a trusted parameter "white list" through.
 
   def user_params
-    params.require(:user).permit(:name, :email)
-  end
-
-  # Check if user is logged in before accessing certain actions
-
-  def require_login
-    return if session[:user_id]
-
-    render json: { error: 'You must be logged in to access this section' }, status: :unauthorized
+    params.require(:user).permit(:name)
   end
 end
+
