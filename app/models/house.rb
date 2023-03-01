@@ -3,9 +3,7 @@ class House < ApplicationRecord
 
   # attribute definitions
   attribute :name, :string
-  attribute :image, :string
 
   # validations
   validates :name, presence: true
-  validates :image, presence: true
 end
