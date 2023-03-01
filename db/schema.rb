@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_18_120501) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_01_145411) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
     t.string "house"
-    t.string "bloodStatus"
+    t.string "blood_status"
     t.string "species"
-    t.date "dateOfBirth"
+    t.date "date_of_birth"
     t.string "ancestry"
     t.string "patrons"
     t.string "actor"
@@ -28,6 +28,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_18_120501) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.bigint "house_id", null: false
+    t.jsonb "wand"
+    t.string "wood"
+    t.string "core"
+    t.integer "length"
     t.index ["house_id"], name: "index_characters_on_house_id"
   end
 
