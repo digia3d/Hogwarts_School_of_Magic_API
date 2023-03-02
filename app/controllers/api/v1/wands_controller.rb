@@ -3,11 +3,11 @@ class Api::V1::WandsController < ApplicationController
 
   def index
     @wands = Wand.all
-    render json: @wands.as_json(only: [:id, :wood, :core, :length])
+    render json: @wands.as_json(only: %i[id wood core length])
   end
 
   def show
-    render json: @wand.as_json(only: [:id, :wood, :core, :length])
+    render json: @wand.as_json(only: %i[id wood core length])
   end
 
   private
