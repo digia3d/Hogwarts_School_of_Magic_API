@@ -3,11 +3,17 @@ class Api::V1::CharactersController < ApplicationController
 
   def index
     @characters = Character.all
-    render json: @characters.as_json(only: [:id, :name, :species, :gender, :house, :date_of_birth, :ancestry, :eye_colour, :hair_colour, :patronus, :hogwarts_student, :hogwarts_staff, :actor, :alive, :image], include: { wand: { only: [:wood, :core, :length]}})
+    render json: @characters.as_json(
+      only: %i[id name species gender house date_of_birth ancestry eye_colour hair_colour patronus hogwarts_student
+               hogwarts_staff actor alive image], include: { wand: { only: %i[wood core length] } }
+    )
   end
 
   def show
-    render json: @character.as_json(only: [:id, :name, :species, :gender, :house, :date_of_birth, :ancestry, :eye_colour, :hair_colour, :patronus, :hogwarts_student, :hogwarts_staff, :actor, :alive, :image], include: { wand: { only: [:wood, :core, :length]}})
+    render json: @character.as_json(
+      only: %i[id name species gender house date_of_birth ancestry eye_colour hair_colour patronus hogwarts_student
+               hogwarts_staff actor alive image], include: { wand: { only: %i[wood core length] } }
+    )
   end
 
   def create
@@ -27,7 +33,9 @@ class Api::V1::CharactersController < ApplicationController
   end
 
   def character_params
-    params.require(:character).permit(:name, :species, :gender, :house_id, :date_of_birth, :ancestry, :eye_colour, :hair_colour, :patronus, :hogwarts_student, :hogwarts_staff, :actor, :alive, :image, wand_attributes: [:wood, :core, :length])
+    params.require(:character).permit(:name, :species, :gender, :house_id, :date_of_birth, :ancestry, :eye_colour,
+                                      :hair_colour, :patronus, :hogwarts_student, :hogwarts_staff, :actor, :alive,
+                                      :image, wand_attributes: %i[wood core length])
   end
 
   def character_response(character)
