@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       resources :characters, only: [:index, :show]
       resources :houses, only: [:index, :show]
       resources :wands, only: [:index, :show]
-      get '/houses/:id/characters', to: 'houses#characters'
+      get '/houses/:house_id/characters', to: 'houses#characters'
     end
   end
 end
