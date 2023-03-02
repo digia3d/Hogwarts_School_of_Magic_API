@@ -17,4 +17,5 @@ class Character < ApplicationRecord
   attribute :actor, :string
   attribute :alive, :boolean
   attribute :image, :string
+  attribute :house_id, :integer
 end
