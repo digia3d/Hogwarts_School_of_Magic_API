@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # add :name to the list of attributes
 
-  attributes :name
+  attribute :name
 
   # validate that :name is present and unique
 
@@ -12,7 +12,7 @@ class User < ApplicationRecord
   def self.authenticate(name)
     user = User.find_by(name: name)
     if user.present?
-      return user
+      return user.name
     else
       return nil
     end
