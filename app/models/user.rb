@@ -10,11 +10,9 @@ class User < ApplicationRecord
   # add a method to return the user's name
 
   def self.authenticate(name)
-    user = User.find_by(name: name)
-    if user.present?
-      return user.name
-    else
-      return nil
-    end
+    user = User.find_by(name:)
+    return user.name if user.present?
+
+    nil
   end
 end
