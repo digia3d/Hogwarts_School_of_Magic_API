@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :houses, only: [:index, :show]
       resources :wands, only: [:index, :show]
       get '/houses/:house_id/characters', to: 'houses#characters'
+      post 'login', to: 'auth#login'
     end
   end
 end
