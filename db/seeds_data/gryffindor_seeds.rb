@@ -6,7 +6,7 @@ harry = Character.create(
   species: 'human',
   gender: 'male',
   house_id: house.id,
-  date_of_birth: Date.parse('31-07-1980'),
+  date_of_birth: '1980-07-31',
   blood_status: 'half-blood',
   ancestry: 'Peverell',
   eye_colour: 'green',
