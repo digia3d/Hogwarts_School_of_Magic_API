@@ -7,7 +7,8 @@ harry = Character.create(
   gender: 'male',
   house_id: house.id,
   date_of_birth: '1980-07-31',
-  ancestry: 'half-blood',
+  blood_status: 'half-blood',
+  ancestry: 'Peverell',
   eye_colour: 'green',
   hair_colour: 'black',
   patronus: 'stag',
@@ -21,6 +22,6 @@ harry = Character.create(
 harry.create_wand(
   wood: 'holly',
   core: 'phoenix feather',
-  length: 11
+  length: 11.0
 )
 
