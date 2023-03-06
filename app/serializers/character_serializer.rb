@@ -1,5 +1,6 @@
 class CharacterSerializer < ActiveModel::Serializer
-  attributes :id, :name, :species, :gender, :date_of_birth, :blood_status, :ancestry, :eye_colour, :hair_colour, :patronus, :hogwarts_student, :hogwarts_staff, :actor, :alive, :image
+  attributes :id, :name, :species, :gender, :date_of_birth, :blood_status, :ancestry, :eye_colour, :hair_colour,
+             :patronus, :hogwarts_student, :hogwarts_staff, :actor, :alive, :image
 
   belongs_to :house
   has_one :wand
