@@ -5,7 +5,7 @@ class Wand < ApplicationRecord
 
   attribute :wood, :string
   attribute :core, :string
-  attribute :length, :integer
+  attribute :length, :float
 
   # validations
   validates :wood, presence: true
