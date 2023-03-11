@@ -80,7 +80,5 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: hogwarts_api_production
-  username: hogwarts_api
-  password: <%= ENV["HOGWARTS_API_DATABASE_PASSWORD"] %>
+    <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
