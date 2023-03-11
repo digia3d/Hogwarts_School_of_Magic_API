@@ -1,4 +1,4 @@
-class CharacterSerializer < ActiveModel::Serializer
+class CharacterSerializer < ActiveModel::Serializers
   attributes :id, :name, :species, :gender, :date_of_birth, :blood_status, :ancestry, :eye_colour, :hair_colour,
              :patronus, :hogwarts_student, :hogwarts_staff, :actor, :alive, :image
 
