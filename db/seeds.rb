@@ -7,3 +7,4 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require_relative 'seeds_data/gryffindor_seeds'
+require_relative 'seeds_data/slytherin_seeds'
