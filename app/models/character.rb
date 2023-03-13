@@ -7,7 +7,7 @@ class Character < ApplicationRecord
   attribute :name, :string
   attribute :species, :string
   attribute :gender, :string
-  attribute :date_of_birth, :date
+  attribute :date_of_birth, :string
   attribute :blood_status, :string
   attribute :ancestry, :string
   attribute :eye_colour, :string

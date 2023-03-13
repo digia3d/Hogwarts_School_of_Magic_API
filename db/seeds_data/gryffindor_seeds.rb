@@ -1,7 +1,7 @@
 # Create the houses
 house = House.create(name: 'Gryffindor')
 
-harry = Character.create(
+harry_potter = Character.create(
   name: 'Harry Potter',
   species: 'human',
   gender: 'male',
@@ -19,9 +19,10 @@ harry = Character.create(
   image: 'https://ik.imagekit.io/hpapi/harry.jpg'
 )
 
-harry.create_wand(
+harry_potter.create_wand(
   wood: 'holly',
   core: 'phoenix feather',
   length: 11.0
 )
 
+puts harry_potter.as_json(include: { house: { only: [:name] } })
