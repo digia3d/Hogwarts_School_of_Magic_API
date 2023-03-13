@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_06_141323) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_155431) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,8 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_141323) do
     t.string "name"
     t.string "species"
     t.string "gender"
-    t.string "house"
-    t.date "date_of_birth"
+    t.string "date_of_birth"
     t.string "ancestry"
     t.string "eye_colour"
     t.string "hair_colour"
@@ -32,6 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_141323) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "house_id"
+    t.string "blood_status"
     t.index ["house_id"], name: "index_characters_on_house_id"
     t.index ["name", "house_id"], name: "index_characters_on_name_and_house_id", unique: true
   end
