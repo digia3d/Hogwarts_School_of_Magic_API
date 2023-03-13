@@ -19,4 +19,19 @@ class Character < ApplicationRecord
   attribute :alive, :boolean
   attribute :image, :string
   attribute :house_id, :integer
+
+  def as_json(options = {})
+    super(options.merge({
+      only: [:id, :name, :species, :gender, :date_of_birth, :blood_status, :ancestry, :eye_colour, :hair_colour, :patronus, :hogwarts_student, :hogwarts_staff, :actor, :alive, :image],
+      include: {
+        house: {
+          only: [:name]
+        },
+        wand: {
+          only: [:wood, :core, :length]
+        }
+      }
+    }))
+  end
+  
 end
